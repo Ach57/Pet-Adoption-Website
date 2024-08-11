@@ -44,11 +44,13 @@ app.post('/CreatedAccount', (req, res)=>{
     }
     
     if(users.includes(username)){
-         res.render('CreateAccount', {message: 'User Name already exists!'});
+         res.render('CreateAccount', {message: 'User Name already exists!',
+                                     loggedIn:false});
     }else{
         fs.appendFileSync('users.txt',`${username}:${password}\n` );
         
-        res.render('CreateAccount',{message: `Account created successfully!`});
+        res.render('CreateAccount',{message: `Account created successfully!`,
+                                   loggedIn:false});
     }
 
 });
