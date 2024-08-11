@@ -1,0 +1,143 @@
+<!-- 
+    Assignment 01 
+    Question 08
+    Course: SOEN 287 
+    Full Name: Achraf Cheniti
+    Student ID: 40244865
+    
+-->
+
+
+<!DOCTYPE html>
+
+<html lang="EN">
+    <head>
+        <title> Market Place for Pet Adoption</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="You can adopt pets (cats and dogs) on our website">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="images/petImg.png">
+        <link rel="stylesheet" href='/Css/main.css'>
+    </head>
+
+    <body>
+
+        <%- include('EJS/header') %> <!-- Include header.ejs -->
+
+            
+        <script src="/JS/date.js"></script>
+        <% if (loggedIn) { %>
+            <div class="logout-container">
+                <p>Welcome, <%= username %>!</p>
+                <form action="/logout" method="POST">
+                    <button type="submit" class="logout-button">Logout</button>
+                </form>
+            </div>
+        <% } %>
+
+
+        <main>
+            <div class="container" >
+                <div>
+                    <ul class="nav">
+                        <a href="/" class="home-page-animation">
+                            <li>Home Page</li>
+                            <img width="200px" class="home-page-animation-hover" src="/images/DogSniffing_Transparent.gif">
+                        </a>
+                        <% if (!loggedIn) { %>
+                            <a href="/CreateAccount" class="browse">
+                                <li>Create an Account</li>
+                                <img class="browse-gif" src="https://media.tenor.com/JL0YrycH2gkAAAAj/peach-goma-crate-orange.gif" alt="Browse GIF">
+                            </a>
+                            <% } %>
+                        <% if(loggedIn){ %>
+                            <a href="/FindDogCat" class="browse">
+                                <li>Find a dog/cat</li>
+                                <img class="browse-gif" src="https://media.tenor.com/JL0YrycH2gkAAAAj/peach-goma-crate-orange.gif" alt="Browse GIF">
+                            </a>
+                        <%} %>
+                        <a href="/DogCare" class="cat-care-animation">
+                            <li>Dog Care</li>
+                            <img class="cat-care-animation-hover" src="https://cdn.pixabay.com/animation/2023/01/19/08/26/08-26-01-694_512.gif">    
+                        </a>
+                        
+                        <a href="/CatCare" class="cat-care-animation">
+                            
+                            <li>Cat Care</li>
+                            <img class="cat-care-animation-hover" src="https://64.media.tumblr.com/e642b66f8548fa1485621bd82d3eacc9/df8c8427627025f7-72/s640x960/af7dc108c6fd722e684f767aa7ad6b9f72f9d9c9.gifv">
+                        </a>
+                        
+                        <a href="/PetGiveAway" class="cat-care-animation">
+                            <div>
+                            <li>Have a pet to give away</li>
+                            <img class="cat-care-animation-hover" src="https://media.tenor.com/lCKwsD2OW1kAAAAi/happy-cat-happy-happy-cat.gif">
+                            </div>
+                            
+                        </a>
+                        
+                        <a href="/ContactUs"><li>Contact Us</li></a>
+                    </ul>
+                    
+                    </div>
+                    <div class=" content">
+                        <h1>Pet-Adoption.com</h1>
+                        <p>Welcome to PET-ADOPTION.CON, your ultimate destination for finding the perfect furry companion. At PET-ADOPTION.CON, we are dedicated to connecting loving homes with adorable cats and dogs in need. Whether you're searching for a playful puppy to brighten your days or a cuddly kitten to warm your heart, our website offers a variety of adoptable pets just waiting to be welcomed into loving families.<br><br>
+                        Explore our listings, each featuring detailed profiles and heartwarming stories, to find your new best friend. Our easy adoption process and dedicated support make your journey as joyful and seamless as possible. Join us in giving these wonderful animals a second chance at happiness and unconditional love.<br><br>
+                        Start your journey with PET-ADOPTION.CON today and experience the rewarding joy of pet adoption.</p>
+                    </div>
+
+            </div>
+           
+                
+
+        </main>
+        <div class="container">
+            <div class="footer-follow-us"> 
+                <h2 >FOLLOW US  <img class="social-media-icon" width="26"  src="images/fblogo.png"> <img width="26"  class="social-media-icon"  src="images/insta.jpeg"> <img width="32"  class="social-media-icon"  src="images/youtube.png"></h2> 
+                <h2 >CONTACT AND HELP</h2>
+                <ul class="navfooter">
+                    <li><a href="/AboutUs">About us</a></li>
+                    <li><a href="/EmailUs">E-mail us</a></li>
+                    <li><a href="/PrivacyPolicy">Privacy Policy</a></li>
+                    <li><a href="/TermsOfUse">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-container">
+                <h3>Why Choose Us?</h3>
+                    <ul>
+                        <li>Comprehensive Listings: Find your perfect pet with detailed profiles and photos.</li>
+                        <br>
+                        <li>User-Friendly Experience: Easy navigation for a seamless adoption journey.</li>
+                        <br>
+                        <li>Dedicated Support: Personalized assistance throughout the adoption process.</li>
+                    </ul>
+
+                <h3>Why Trust Us?</h3>
+                <ul>
+                    <li>Established Reputation: Trusted by our community with years of successful adoptions.</li>
+                    <br>
+                    <li>Transparency: Clear policies and verified pet profiles ensure confidence in your adoption.</li>
+                    <br>
+                    <li>Health Assurance: Pets receive necessary vaccinations and health checks for their wellbeing.</li>
+                </ul>
+                
+
+            </div>
+            <div class="footer-event-container">
+                <h1>EVENTS & PROMO</h1>
+                <p>Under Construction . . . </p>
+
+            </div>
+
+        </div>
+        
+            <%- include('EJS/footer') %> <!-- Include footer.ejs -->
+
+        <button class="credit"><a href="/Credit">To obtain information related to where the picture are obtained from, click here</a></button>
+
+
+    </body>
+
+
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> About Pet-Adoption</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="You can adopt pets (cats and dogs) on our website">
+        <link rel="icon" href="/images/petImg.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/Css/main.css">
+        
+    </head>
+
+
+    <body>
+
+        <%- include('EJS/header') %> <!-- Include header.ejs -->
+        <script src="/JS/date.js"></script>
+        <% if (loggedIn) { %>
+            <div class="logout-container">
+                <p>Welcome, <%= username %>!</p>
+                <form action="/logout" method="POST">
+                    <button type="submit" class="logout-button">Logout</button>
+                </form>
+            </div>
+        <% } %>
+        <main>
+
+            <div class="container">
+                    
+                    <div>
+                        <ul class="nav">
+                            <a href="/" class="home-page-animation">
+                                <li>Home Page</li>
+                                <img width="200px" class="home-page-animation-hover" src="./images/DogSniffing_Transparent.gif">
+                            </a>
+                            <% if (!loggedIn) { %>
+                                <a href="/CreateAccount" class="browse">
+                                    <li>Create an Account</li>
+                                    <img class="browse-gif" src="https://media.tenor.com/JL0YrycH2gkAAAAj/peach-goma-crate-orange.gif" alt="Browse GIF">
+                                </a>
+                                <% } %>
+                                <% if(loggedIn){ %>
+                                    <a href="/FindDogCat" class="browse">
+                                        <li>Find a dog/cat</li>
+                                        <img class="browse-gif" src="https://media.tenor.com/JL0YrycH2gkAAAAj/peach-goma-crate-orange.gif" alt="Browse GIF">
+                                    </a>
+                                <%} %>
+                            <a href="/DogCare" class="cat-care-animation">
+                                <li>Dog Care</li>
+                                <img class="cat-care-animation-hover" src="https://cdn.pixabay.com/animation/2023/01/19/08/26/08-26-01-694_512.gif">    
+                            </a>
+                            
+                            <a href="/CatCare" class="cat-care-animation">
+                                
+                                <li>Cat Care</li>
+                                <img class="cat-care-animation-hover" src="https://64.media.tumblr.com/e642b66f8548fa1485621bd82d3eacc9/df8c8427627025f7-72/s640x960/af7dc108c6fd722e684f767aa7ad6b9f72f9d9c9.gifv">
+                            </a>
+                            
+                            <a href="/PetGiveAway" class="cat-care-animation">
+                                <div>
+                                <li>Have a pet to give away</li>
+                                <img class="cat-care-animation-hover" src="https://media.tenor.com/lCKwsD2OW1kAAAAi/happy-cat-happy-happy-cat.gif">
+                                </div>
+                                
+                            </a>
+                            
+                            <a href="/ContactUs"><li>Contact Us</li></a>
+                        </ul>
+                        <div class="content-container">
+                            <h3 style="margin-left: 10px;">History</h3>
+                            <p style="margin-left: 10px;"><b>PET-ADOPTION.CON was founded in 2023 with the goal of making the pet adoption <br>process easier and more accessible.<br>Since then, we have helped thousands of pets find their forever homes.</b></p>
+    
+                        </div>
+                    </div>
+
+                   
+
+                        <div class="container-Style">
+                        <form>
+                            <fieldset class="form-container">
+                                <legend class="Contact-And-Help"><a href="/AboutUs">About Us</a></legend>
+                                <ul style="list-style-type: none;">
+                                    <li><h3>Our Mission</h3></li>
+                                        <ul style="list-style-type: none;" id="ulColor">
+                                            <li>At PET-ADOPTION.COM, our mission is to connect loving homes with adorable cats and dogs in need. We believe that every pet deserves a 
+                                                chance at a happy, healthy life in a caring environment.</li>
+                                        </ul>
+                                    <li><h3>Our Vision</h3></li>
+                                        <ul style="list-style-type: none;" id="ulColor">
+                                            <li>We envision a world where every pet has a loving home and no animal is left behind. We strive to reduce the number of homeless pets by facilitating the adoption process and promoting responsible pet ownership.</li>
+                                        </ul>
+                                    <li><h3>Our Values</h3></li>
+                                        <ul id="ulColor" style="list-style-type:disc;">
+                                            <li><b>Compassion:</b>We care deeply about the well-being of animals and are committed to helping them find loving homes.</li>
+                                            <br>
+                                            <li><b>Integrity:</b> We operate with honesty and transparency in all our interactions and processes.
+                                            </li><br>
+                                            
+                                            <li><b>Community:</b> We foster a sense of community among pet lovers and adopters, creating a support network for all.</li>
+                                        </ul>
+                                    <li><h3>Our Story</h3>
+                                    <ul id="ulColor">PET-ADOPTION.COM was founded by a group of animal lovers who recognized the need for a reliable platform to connect pets in need with potential adopters. Our journey began with a simple idea: to make pet adoption easier and more accessible for everyone. Over the years, we have grown into a trusted resource for thousands of adopters and shelters.</ul></li>
+                                    <li><h3>How It Works</h3>
+                                        <ol  id="ulColor" type="1">
+                                            <li><b>Browse Listings:</b>Explore our extensive listings of adoptable pets, each with detailed profiles and photos.
+                                                Meet</li>
+                                            <li><b>Meet Your Match:</b>Contact the shelter or foster home to learn more about the pet and arrange a meeting.</li>    
+                                            <li><b>Adoption Process:</b> Follow our straightforward adoption process, with support from our dedicated team every step of the way.</li>
+                                            <li><b>Welcome Home:</b>Bring your new furry friend home and enjoy the unconditional love and joy they bring.</li>
+                                        </ol>
+                                    </li>
+                                        
+
+                                </ul>
+
+                            </fieldset>
+                        </form>
+                    </div>    
+                </div>
+                <div class="info-container">
+                    <ul>
+                        <li><a href="/EmailUs">E-mail us</a></li>
+                        <li><a href="/PrivacyPolicy">Privacy Policy</a></li>
+                        <li><a  href="/TermsOfUse">Terms of Service</a></li>
+                    </ul>
+                </div>
+            
+
+            
+
+        </main>
+
+
+        <%- include('EJS/footer') %> <!-- Include footer.ejs -->
+
+
+
+
+    </body>
+
+
+</html>

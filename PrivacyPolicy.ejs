@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="EN">
+    <head>
+        <title> Privacy Policy</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="You can adopt pets (cats and dogs) on our website">
+        <link rel="icon" href="/images/petImg.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/Css/main.css">
+        
+    </head>
+
+
+    <body>
+        <%- include('EJS/header') %> <!-- Include header.ejs -->
+    
+        <script src="/JS/date.js"></script>
+        <% if (loggedIn) { %>
+            <div class="logout-container">
+                <p>Welcome, <%= username %>!</p>
+                <form action="/logout" method="POST">
+                    <button type="submit" class="logout-button">Logout</button>
+                </form>
+            </div>
+        <% } %>
+
+        <main>
+            <div class="container">
+                <div>
+                    <ul class="nav">
+                        <a href="/" class="home-page-animation">
+                            <li>Home Page</li>
+                            <img width="200px" class="home-page-animation-hover" src="./images/DogSniffing_Transparent.gif">
+                        </a>
+                        <% if (!loggedIn) { %>
+                            <a href="/CreateAccount" class="browse">
+                                <li>Create an Account</li>
+                                <img class="browse-gif" src="https://media.tenor.com/JL0YrycH2gkAAAAj/peach-goma-crate-orange.gif" alt="Browse GIF">
+                            </a>
+                            <% } %>
+                            <% if(loggedIn){ %>
+                                <a href="/FindDogCat" class="browse">
+                                    <li>Find a dog/cat</li>
+                                    <img class="browse-gif" src="https://media.tenor.com/JL0YrycH2gkAAAAj/peach-goma-crate-orange.gif" alt="Browse GIF">
+                                </a>
+                            <%} %>
+                        <a href="/DogCare" class="cat-care-animation">
+                            <li>Dog Care</li>
+                            <img class="cat-care-animation-hover" src="https://cdn.pixabay.com/animation/2023/01/19/08/26/08-26-01-694_512.gif">    
+                        </a>
+                        
+                        <a href="/CatCare" class="cat-care-animation">
+                            
+                            <li>Cat Care</li>
+                            <img class="cat-care-animation-hover" src="https://64.media.tumblr.com/e642b66f8548fa1485621bd82d3eacc9/df8c8427627025f7-72/s640x960/af7dc108c6fd722e684f767aa7ad6b9f72f9d9c9.gifv">
+                        </a>
+                        
+                        <a href="/PetGiveAway" class="cat-care-animation">
+                            <div>
+                            <li>Have a pet to give away</li>
+                            <img class="cat-care-animation-hover" src="https://media.tenor.com/lCKwsD2OW1kAAAAi/happy-cat-happy-happy-cat.gif">
+                            </div>
+                            
+                        </a>
+                        
+                        <a href="/ContactUs"><li>Contact Us</li></a>
+                    </ul>
+                <div class="content-container">
+                    <h2 style="margin-left: 10px;" >Changes in <br>Privacy Policy</h2>
+                    <p style="margin-left: 10px;">In the event of any changes,we will notify our customers directly.<br><br> Alternatively, the updated policy can always be found on our website.</p>
+
+                </div>
+
+            </div>
+                    <div class="container-Style">                    
+                    <form>
+                        <fieldset class="form-container">
+                            <legend class="Contact-And-Help"><a href="/PrivacyPolicy">PrivacyPolicy</a></legend>
+
+                            <p>
+                                <b>Welcome to PET-ADOPTION.COM! We are committed to protecting your privacy and ensuring your personal information is handled responsibly. This privacy policy outlines how we collect, use, and safeguard your data.</b>
+                            </p>
+                            <ul style="list-style-type: none;">
+
+                                <li><h2 >Information We Collect</h2>
+                                    <ul style="list-style-type: none;" id="ulColor">
+                                        <li>We may collect personal information such as your name, email address, and IP address when you interact with our website, sign up for newsletters, or make purchases.</li>    
+                                    </ul>
+                                </li>
+                            
+                            
+                            <li><h2>How We Use Your Information</h2>
+                                <ul style="list-style-type: none;" id="ulColor">
+                                    <li>We use your information to provide and improve our services, process transactions, communicate with you, and personalize your experience.</lili>
+
+                                </ul>
+                            </li>
+
+                            
+                            <li><h2>Sharing of Information</h2>
+                                <ul style="list-style-type: none;" id="ulColor">
+                                    <li>We may share your information with trusted third parties to assist us in operating our website, conducting business, or servicing you, provided those parties agree to keep this information confidential.</li>
+                                </ul>
+                            </li>
+                            
+                            <li><h2>Data Security</h2>
+                                <ul style="list-style-type: none;" id="ulColor">
+                                    <li>
+                                        We implement a variety of security measures to maintain the safety of your personal information. Your data is stored on secure servers and protected against unauthorized access.
+                                    </li>
+
+                                </ul>
+
+                            </li>
+                            
+
+                            <li><h2>Cookies</h2>
+                                <ul style="list-style-type: none;" id="ulColor">
+                                    <li>We use cookies to enhance your experience on our site, analyze traffic, and personalize content. You can control cookies through your browser settings.</li>
+                                </ul>
+                            </li>
+                            
+
+                            <li><h2>Your Rights</h2>
+                                <ul style="list-style-type: none;" id="ulColor">
+                                <li>You have the right to access, correct, or delete your personal information. Contact us at [email address] to exercise these rights.</li>
+
+
+                                </ul>
+                    
+                            </li>
+            
+                            <li><h2>Changes to This Policy</h2>
+                                <ul style="list-style-type: none;" id="ulColor">
+                                <li>We may update this privacy policy periodically. Any changes will be posted on this page, and you will be notified if they significantly affect your rights.</li>
+
+                            </ul>
+                            
+                            </li>
+
+                            
+
+                            </ul>
+                        </fieldset>
+                    </form>
+                </div>
+
+                </div>
+                <div class="info-container">
+                    <ul>
+                        <li><a href="/EmailUs">E-mail us</a></li>
+                        <li><a href="/AboutUs">About Us</a></li>
+                        <li><a  href="/TermsOfUse">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+        </main>
+
+
+
+        <%- include('EJS/footer') %> <!-- Include footer.ejs -->
+
+
+
+    </body>
+
+
+
+
+
+
+
+</html>
+

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> Email-Us</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="You can adopt pets (cats and dogs) on our website">
+        <link rel="icon" href="/images/petImg.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/Css/main.css">
+        
+    </head>
+
+    <body>
+        
+        <%- include('EJS/header') %> <!-- Include header.ejs -->
+    
+        <script src="/JS/date.js"></script>
+        <% if (loggedIn) { %>
+            <div class="logout-container">
+                <p>Welcome, <%= username %>!</p>
+                <form action="/logout" method="POST">
+                    <button type="submit" class="logout-button">Logout</button>
+                </form>
+            </div>
+        <% } %>
+
+        <main>
+
+            <div class="container">
+                <ul class="nav">
+                    <a href="/" class="home-page-animation">
+                        <li>Home Page</li>
+                        <img width="200px" class="home-page-animation-hover" src="./images/DogSniffing_Transparent.gif">
+                    </a>
+                    <% if (!loggedIn) { %>
+                        <a href="/CreateAccount" class="browse">
+                            <li>Create an Account</li>
+                            <img class="browse-gif" src="https://media.tenor.com/JL0YrycH2gkAAAAj/peach-goma-crate-orange.gif" alt="Browse GIF">
+                        </a>
+                        <% } %>
+                        <% if(loggedIn){ %>
+                            <a href="/FindDogCat" class="browse">
+                                <li>Find a dog/cat</li>
+                                <img class="browse-gif" src="https://media.tenor.com/JL0YrycH2gkAAAAj/peach-goma-crate-orange.gif" alt="Browse GIF">
+                            </a>
+                        <%} %>
+                    <a href="/DogCare" class="cat-care-animation">
+                        <li>Dog Care</li>
+                        <img class="cat-care-animation-hover" src="https://cdn.pixabay.com/animation/2023/01/19/08/26/08-26-01-694_512.gif">    
+                    </a>
+                    
+                    <a href="/CatCare" class="cat-care-animation">
+                        
+                        <li>Cat Care</li>
+                        <img class="cat-care-animation-hover" src="https://64.media.tumblr.com/e642b66f8548fa1485621bd82d3eacc9/df8c8427627025f7-72/s640x960/af7dc108c6fd722e684f767aa7ad6b9f72f9d9c9.gifv">
+                    </a>
+                    
+                    <a href="/PetGiveAway" class="cat-care-animation">
+                        <div>
+                        <li>Have a pet to give away</li>
+                        <img class="cat-care-animation-hover" src="https://media.tenor.com/lCKwsD2OW1kAAAAi/happy-cat-happy-happy-cat.gif">
+                        </div>
+                        
+                    </a>
+                    
+                    <a href="/ContactUs"><li>Contact Us</li></a>
+                </ul>
+                    <div class="container-Style">
+                        
+                        <form>
+
+                            <fieldset class="form-container">
+                                <legend class="Contact-And-Help"><a href="/EmailUs">E-mail Us</a></legend>
+                                <label>First Name: </label>
+                                <input type="text" placeholder="Enter your name" required>
+                                <label>Last Name:</label>
+                                <input type="text" placeholder="Enter your last name" required>
+                                <br><br>
+                                <label>Email:</label>
+                                <input type="text" placeholder="Enter your Email here" required ><br>
+                                <br>
+                                <label>Message:</label>
+                                <textarea rows="4" cols="50"> Enter your message here . . .</textarea>
+                                <br><br>
+                                <input type="submit">
+
+
+
+                            </fieldset>
+
+                        </form>
+                    </div>
+                <div class="content-container no-margin-top">
+                    <h3>Time and delay</h3>
+                    <p>We value your inquiries and strive to respond to all emails as promptly as possible.<br><br> However, due to the high volume of messages we receive daily, our response time may be delayed.<br><br>Please allow up to 48 hours for our team to get back to you.<br><br> Rest assured, every email is important to us, and we will do our best to address your questions or concerns as quickly as we can.<br><br> Thank you for your patience and understanding.</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-container">
+                <ul>
+                    <li><a href="/AboutUs">About Us</a></li>
+                    <li><a href="/PrivacyPolicy">Privacy Policy</a></li>
+                    <li><a  href="/TermsOfUse">Terms of Service</a></li>
+                </ul>
+            </div>
+
+
+        </main>
+
+      
+
+
+        <%- include('EJS/footer') %> <!-- Include footer.ejs -->
+
+
+
+
+    </body>
+
+
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html lang="EN">
+    <head>
+        <title> Pet GiveAway</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="You can adopt pets (cats and dogs) on our website">
+        <link rel="icon" href="images/petImg.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./Css/main.css">
+        
+    </head>
+    <body>
+
+        <%- include('EJS/header') %> <!-- Include header.ejs -->
+        <div class="balloon-container"></div>
+        <script src="/JS/date.js"></script>
+        <script src="/JS/login.js"></script>
+        <script src="/JS/script.js"></script>
+        <script src="/JS/createBallon.js"></script>
+
+        <div id="login-overlay" <% if (loggedIn) { %> style="display: none;" <% } %> >
+            <div class="login-modal">
+                <form action="/PetGiveAwayLogin" method="POST">
+                    <div class="logout-container">
+                        <h1>Log In</h1>
+                        <a href="/" class="home-page-button">Home Page</a>
+                    </div>
+                    <br><br>
+                    <label for="user-name">User Name:</label>
+                    <input name="user-name" type="text" placeholder="Enter your user name" required>
+                    <br><br>
+                    <label for="user-pass">Password:</label>
+                    <input name="pass-user" type="password" placeholder="Password" required>
+                    <br><br>
+                    <button type="submit">Log In</button>
+                    <p id="login-error-message"><%= loginError %></p>
+                    <% if (loginError === 'You need to create an account!') { %>
+                        <a href="/CreateAccount" class="create-account-button">Create an Account</a>
+                    <% } %>
+                </form>
+            </div>
+        </div>
+        <% if (loggedIn) { %>
+            <div class="logout-container">
+                <p>Welcome, <%= username %>!</p>
+                <form action="/logout" method="POST">
+                    <button type="submit" class="logout-button">Logout</button>
+                </form>
+            </div>
+        <% } %>
+
+    
+        <main>
+
+            <div>
+                <div>
+                    <ul class="nav2 navigation">
+                        <a href="/" class="home-page-animation">
+                            <li>Home Page</li>
+                            <img width="200px" class="home-page-animation-hover" src="./images/DogSniffing_Transparent.gif">
+                        </a>
+                        <% if (!loggedIn) { %>
+                            <a href="/CreateAccount" class="browse">
+                                <li>Create an Account</li>
+                                <img class="browse-gif" src="https://media.tenor.com/JL0YrycH2gkAAAAj/peach-goma-crate-orange.gif" alt="Browse GIF">
+                            </a>
+                            <% } %>
+                            <% if(loggedIn){ %>
+                                <a href="/FindDogCat" class="browse">
+                                    <li>Find a dog/cat</li>
+                                    <img class="browse-gif" src="https://media.tenor.com/JL0YrycH2gkAAAAj/peach-goma-crate-orange.gif" alt="Browse GIF">
+                                </a>
+                            <%} %>
+                        <a href="/DogCare" class="cat-care-animation">
+                            <li>Dog Care</li>
+                            <img class="cat-care-animation-hover" src="https://cdn.pixabay.com/animation/2023/01/19/08/26/08-26-01-694_512.gif">    
+                        </a>
+                        
+                        <a href="/CatCare" class="cat-care-animation">
+                            
+                            <li>Cat Care</li>
+                            <img class="cat-care-animation-hover" src="https://64.media.tumblr.com/e642b66f8548fa1485621bd82d3eacc9/df8c8427627025f7-72/s640x960/af7dc108c6fd722e684f767aa7ad6b9f72f9d9c9.gifv">
+                        </a>
+                        
+                        <a href="/PetGiveAway" class="cat-care-animation">
+                            <div>
+                            <li>Have a pet to give away</li>
+                            <img class="cat-care-animation-hover" src="https://media.tenor.com/lCKwsD2OW1kAAAAi/happy-cat-happy-happy-cat.gif">
+                            </div>
+                            
+                        </a>
+                        
+                        <a href="/ContactUs"><li>Contact Us</li></a>
+                    </ul>
+                </div>
+
+                <div class="container-1">
+                    <div class="container-Style container-style2 ">
+                        <form id="petGiveAway" action="/PetGiveAway" method="post">
+                            <fieldset class="form-container">
+                                <legend class="Contact-And-Help">
+                                    <a href="/PetGiveAway">Pet GiveAway</a>
+                                </legend>
+                        
+                                <label>Select the type of pet you want to find:</label>
+                                <br><br>
+                                <input type="radio" id="dog" name="petType" value="Dog"> <label for="dog">Dog</label>
+                                <input type="radio" id="cat" name="petType" value="Cat"> <label for="cat">Cat</label>
+                                <br><br>
+                        
+                                <label id="ageSelection">Type of breed: </label>
+                                <select id="breedSelect" name="breed">
+                                    <option value="">I don't know</option>
+                                </select>
+                                <br><br>
+                        
+                                <label>Age Selection Range:</label>
+                                <select id="ageRange" name="ageRange">
+                                    <option value="">I don't know</option>
+                                    <option value="0-6 months">0-6 months (Puppy/Kitten)</option>
+                                    <option value="7-12 months">7-12 months (Adolescent)</option>
+                                    <option value="1-2 years">1-2 years (Young Adult)</option>
+                                    <option value="3-5 years">3-5 years (Adult)</option>
+                                    <option value="6-9 years">6-9 years (Senior)</option>
+                                </select>
+                                <br><br><br>
+                        
+                                <label>Preferred Gender:</label>
+                                <input type="radio" id="male" name="gender" value="male"> <label for="male">Male</label>
+                                <input type="radio" id="female" name="gender" value="female"> <label for="female">Female</label>
+                                <br><br><br>
+                        
+                                <label>Get Along with:</label>
+                                <input type="checkbox" id="otherDogs" name="getAlong[]" value="Other Dogs"> <label for="otherDogs">Other Dogs</label>
+                                <input type="checkbox" id="otherCats" name="getAlong[]" value="Other Cats"> <label for="otherCats">Other Cats</label>
+                                <input type="checkbox" id="smallChildren" name="getAlong[]" value="Small Children"> <label for="smallChildren">Small Children</label>
+                                <br><br><br>
+                        
+                                <input type="checkbox" id="SuitableFamily" name="suitable" value="Yes"><label for="SuitableForFamily">Suitable for a family with small Children</label>
+                                <br><br><br>
+                        
+                                <label>Comment: </label>   
+                                <br><br> 
+                                <textarea rows="4" cols="50" name="comment"></textarea>
+                                <br><br>
+                        
+                                <label>Current Owner Name: </label> 
+                                <input class="inputext" id='firstName' name="first-name" type="text" placeholder="Enter first name"> 
+                                <br>
+                                <label>Current Owner Last Name: </label> 
+                                <input class="inputext" id="lastName" name="last-name" type="text" placeholder="Enter last name"> 
+                                <br>
+                                <label>Current Owner E-mail: </label> 
+                                <input class="inputext" id="email" name="email" type="email" placeholder="Enter your E-mail">
+                                <br><br><br>
+                                <input class="social-media-icon" value="submit" type="submit"> 
+                                <input class="social-media-icon" value="reset" type="reset">
+                                <div id="error-message" style="color:red"><%= message %></div>
+                                <% if (message === 'Pet information submitted successfully.') { %>
+                                    <script>
+                                        createBalloons();
+                                    </script>
+                                <% } %>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div>
+                        <div class="footer-event-container container-Style3"> 
+                        <h2>What Happens to Pets When They Are Given Away?</h2>
+                        <p>When pets are given away through our platform, they are placed in loving homes where their needs and well-being are prioritized. Each pet is matched with a new owner who can provide the care and attention they deserve. We ensure that the transition is smooth and stress-free for the pets, helping them adapt to their new environment. Our goal is to find the best possible match for every pet, ensuring they continue to live happy and healthy lives with their new families.</p>
+                        </div>
+
+                        <div class="footer-event-container  container-Style4">
+                            <h2>Thorough Screening</h2>
+                            <p>We carefully screen all potential adopters to ensure they can provide a safe and nurturing environment for the pets. This includes background checks, interviews, and home visits to guarantee that every pet is placed in a loving and responsible home.</p>
+                            <h2>
+                                Health and Safety
+                            </h2>
+                            <p>All pets undergo a comprehensive health check to ensure they are fit and ready for their new homes. We also provide necessary vaccinations and medical care to ensure they start their new journey in the best possible health.
+                            </p>
+    
+                            <h2>Matchmaking Process
+                            </h2>
+                            <p>We consider each pet's personality, preferences, and needs to match them with the most suitable adopters. This personalized approach helps ensure that pets and their new owners are a perfect fit, leading to long-lasting and happy relationships.</p>
+                            <h2>Follow-Up</h2>
+                            <p>We stay in touch with adopters to ensure the pet is adjusting well in their new home. Our follow-up process includes regular check-ins and support to address any issues that may arise, helping to ensure the pet's continued well-being.</p>
+    
+    
+    
+    
+    
+                        </div>
+    
+                    </div>
+
+                   
+
+                    </div> 
+                </div>
+
+
+        </main>
+        <%- include('EJS/footer') %> <!-- Include footer.ejs -->
+
+    </body>
+
+
+
+</html>

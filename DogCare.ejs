@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Dog Care Pet-Adoption</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="You can adopt pets (cats and dogs) on our website">
+        <link rel="icon" href="images/petImg.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./Css/main.css">
+        
+    </head>
+
+    <body>
+
+        <%- include('EJS/header') %> <!-- Include header.ejs -->
+
+        <script src="/JS/date.js"></script>
+
+        <% if (loggedIn) { %>
+            <div class="logout-container">
+                <p>Welcome, <%= username %>!</p>
+                <form action="/logout" method="POST">
+                    <button type="submit" class="logout-button">Logout</button>
+                </form>
+            </div>
+        <% } %>
+        <main>
+
+            <div class="container">
+                <div>
+                    <ul class="nav">
+                        <a href="/" class="home-page-animation">
+                            <li>Home Page</li>
+                            <img width="200px" class="home-page-animation-hover" src="./images/DogSniffing_Transparent.gif">
+                        </a>
+                        <% if (!loggedIn) { %>
+                            <a href="/CreateAccount" class="browse">
+                                <li>Create an Account</li>
+                                <img class="browse-gif" src="https://media.tenor.com/JL0YrycH2gkAAAAj/peach-goma-crate-orange.gif" alt="Browse GIF">
+                            </a>
+                            <% } %>
+                            <% if(loggedIn){ %>
+                                <a href="/FindDogCat" class="browse">
+                                    <li>Find a dog/cat</li>
+                                    <img class="browse-gif" src="https://media.tenor.com/JL0YrycH2gkAAAAj/peach-goma-crate-orange.gif" alt="Browse GIF">
+                                </a>
+                            <%} %>
+                        <a href="/DogCare" class="cat-care-animation">
+                            <li>Dog Care</li>
+                            <img class="cat-care-animation-hover" src="https://cdn.pixabay.com/animation/2023/01/19/08/26/08-26-01-694_512.gif">    
+                        </a>
+                        
+                        <a href="/CatCare" class="cat-care-animation">
+                            
+                            <li>Cat Care</li>
+                            <img class="cat-care-animation-hover" src="https://64.media.tumblr.com/e642b66f8548fa1485621bd82d3eacc9/df8c8427627025f7-72/s640x960/af7dc108c6fd722e684f767aa7ad6b9f72f9d9c9.gifv">
+                        </a>
+                        
+                        <a href="/PetGiveAway" class="cat-care-animation">
+                            <div>
+                            <li>Have a pet to give away</li>
+                            <img class="cat-care-animation-hover" src="https://media.tenor.com/lCKwsD2OW1kAAAAi/happy-cat-happy-happy-cat.gif">
+                            </div>
+                            
+                        </a>
+                        
+                        <a href="/ContactUs"><li>Contact Us</li></a>
+                    </ul>
+                </div>
+                <div class="container-Style">
+                    <form>
+                        <fieldset class="form-container">
+                            <legend class="Contact-And-Help">
+                                <a href="/DogCare">Dog Care</a>
+                            </legend>
+
+                            <ol type="1">
+                                <li><h3>Feeding</h3></li>
+                                    <ul style="list-style-type: disc;" id="ulColor">
+                                        <li>Diet: Feed your dog a balanced diet with high-quality commercial dog food or a vet-approved homemade diet.</li>
+                                        <li>Schedule: Provide meals at regular times each day. Puppies usually need to eat more frequently than adult dogs.</li>
+                                        <li>Portion Control: Follow the feeding guidelines on the food packaging or consult your vet to determine the correct portion size.
+                                        </li>
+                                    </ul>
+                                <li><h3>Exercise</h3></li>
+                                    <ul style="list-style-type: disc;" id="ulColor">
+                                        <li>Daily Exercise: Dogs need regular exercise to stay healthy. The amount of exercise depends on the breed, age, and health of the dog.</li>
+                                        <li>Types of Exercise: Walks, playtime, fetch, and interactive toys are great ways to keep your dog active.</li>
+                                    </ul>
+                                <li><h3>Grooming</h3></li>
+                                    <ul id="ulColor" style="list-style-type:disc;">
+                                        <li>Bathing: Bathe your dog as needed, depending on their activity level and coat type. Some dogs may need monthly baths, while others can go longer.</li>
+                                        
+                                        <li>Brushing: Regularly brush your dog's coat to prevent matting and remove loose hair. The frequency depends on the breed.
+                                        </li>
+                                        
+                                        <li>Nail Trimming: Trim your dog's nails regularly to prevent overgrowth and discomfort.</li>
+                                        <li>
+                                            Dental Care: Brush your dog's teeth regularly and provide dental chews to maintain oral health.
+                                        </li>
+                                    </ul>
+                                
+                                <li><h3>Health Care</h3>
+                                    <ul  id="ulColor" style="list-style-type: disc;">
+                                        <li>Vet Visits: Schedule regular vet check-ups for vaccinations, parasite control, and overall health assessments.</li>
+                                        <li>Parasite Prevention: Use flea, tick, and worm prevention treatments as recommended by your vet.</li>    
+                                        <li>Spaying/Neutering: Consider spaying or neutering your dog to prevent unwanted litters and reduce certain health risks.</li>
+                                        
+                                    </ul>
+                                </li>
+                                    
+                                <li><h3>Training and Socialization</h3>
+                                    <ul  id="ulColor" style="list-style-type: disc;">
+                                        <li>Basic Commands: Teach your dog basic commands like sit, stay, come, and heel.</li>
+                                        <li>Positive Reinforcement: Use positive reinforcement techniques, such as treats and praise, to encourage good behavior.</li>    
+                                        <li>Socialization: Expose your dog to different environments, people, and other animals to promote good social behavior.</li>
+                                        
+                                    </ul>
+                                </li>
+
+                                <li><h3>Safety</h3>
+                                    <ul  id="ulColor" style="list-style-type: disc;">
+                                        <li>ID Tags and Microchipping: Ensure your dog wears a collar with ID tags and consider microchipping for added security.</li>
+                                        <li>Secure Environment: Provide a safe and secure environment, both indoors and outdoors, to prevent accidents or escapes.</li>    
+                                        <li>Avoid Hazards: Keep harmful substances, such as certain foods, plants, and chemicals, out of reach.</li>
+                                        
+                                    </ul>
+                                </li>
+
+                                <li><h3>Mental Stimulation</h3>
+                                    <ul  id="ulColor" style="list-style-type: disc;">
+                                        <li>Toys: Provide a variety of toys to keep your dog mentally stimulated.
+                                        </li>
+                                        <li>Training Games: Engage your dog in training games and activities to challenge their mind.
+                                        </li>    
+                                        <li>Interactive Play: Spend time playing and interacting with your dog to strengthen your bond and provide mental stimulation.
+                                        </li>
+                                        
+                                    </ul>
+                                </li>
+                                <li><h3>Love and Attention</h3>
+                                    <ul  id="ulColor" style="list-style-type: disc;">
+                                        <li>Affection: Give your dog plenty of love, attention, and positive reinforcement.</li>
+                                        <li>Companionship: Dogs are social animals and thrive on companionship. Spend quality time with your dog to keep them happy and emotionally healthy.</li>
+                                        
+                                    </ul>
+                                </li>
+
+                                
+
+
+                            </ol>
+
+                        </fieldset>
+
+
+
+                    </form>
+                </div>
+
+            </div>
+
+        </main>
+
+        <%- include('EJS/footer') %> <!-- Include footer.ejs --> 
+
+
+
+    </body>
+
+
+
+
+
+
+
+</html>

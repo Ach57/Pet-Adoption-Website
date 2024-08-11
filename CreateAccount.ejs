@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Browse Available Pet</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="You can adopt pets (cats and dogs) on our website">
+        <link rel="icon" href="images/petImg.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./Css/main.css">
+
+
+    </head>
+
+    <body>
+        <%- include('EJS/header') %> <!-- Include header.ejs -->
+
+        <div class="balloon-container"></div>
+        <script src="/JS/date.js"></script>
+        <script src="/JS/validateUser.js"></script>
+        <script src="/JS/createBallon.js"></script>
+
+        <main>
+
+            <div>
+                <ul class="nav2 navigation">
+                    <a href="/" class="home-page-animation">
+                        <li>Home Page</li>
+                        <img width="200px" class="home-page-animation-hover" src="./images/DogSniffing_Transparent.gif">
+                    </a>
+                    <a href="/CreateAccount" class="browse">
+                        <li>Create an Account</li>
+                        <img  class="browse-gif" src="https://media.tenor.com/JL0YrycH2gkAAAAj/peach-goma-crate-orange.gif" alt="Browse GIF">
+                    </a>
+                    <% if(loggedIn){ %>
+                        <a href="/FindDogCat" class="browse">
+                            <li>Find a dog/cat</li>
+                            <img class="browse-gif" src="https://media.tenor.com/JL0YrycH2gkAAAAj/peach-goma-crate-orange.gif" alt="Browse GIF">
+                        </a>
+                    <%} %>
+                    <a href="/DogCare" class="cat-care-animation">
+                        <li>Dog Care</li>
+                        <img class="cat-care-animation-hover" src="https://cdn.pixabay.com/animation/2023/01/19/08/26/08-26-01-694_512.gif">    
+                    </a>
+                    
+                    <a href="/CatCare" class="cat-care-animation">
+                        
+                        <li>Cat Care</li>
+                        <img class="cat-care-animation-hover" src="https://64.media.tumblr.com/e642b66f8548fa1485621bd82d3eacc9/df8c8427627025f7-72/s640x960/af7dc108c6fd722e684f767aa7ad6b9f72f9d9c9.gifv">
+                    </a>
+                    
+                    <a href="/PetGiveAway" class="cat-care-animation">
+                        <div>
+                        <li>Have a pet to give away</li>
+                        <img class="cat-care-animation-hover" src="https://media.tenor.com/lCKwsD2OW1kAAAAi/happy-cat-happy-happy-cat.gif">
+                        </div>
+                        
+                    </a>
+                    
+                    <a href="/ContactUs"><li>Contact Us</li></a>
+                </ul>
+            </div>
+
+            <div class="login-box">
+                <form action="/CreatedAccount" method="POST">
+                    <h1>Create an Account</h1>
+                    <div class="login-notice-box"> <!--Instruction for the password-->
+                        <h2>Important Notice:</h2>
+                        <ul>
+                            <p>When creating an account, please note the following:</p>
+                            <li><strong>Username:</strong>Can contain only letters (both uppercase and lowercase) and digits.</li>
+                            <li><strong>Password:</strong> Must be at least 4 characters long, include only letters and digits, and contain at least one letter and one digit.</li>
+
+                        </ul>
+                    </div>
+                    <br><br>
+                    <div class="box-adjust">
+                        <div class="login-user-box">
+                                <label for="user-name">User Name:</label><br><br> <input name="user-name" type="text" placeholder="Enter your user name">
+                                <br><br>
+                                <label for="user-pass">Password: </label> <br><br><input name="pass-user" type="password" placeholder="password">
+                                <br><br>
+                                <button type="submit">Create Account</button>
+                                <p id="error-message"><%= message %></p>
+                                <% if (message === 'Account created successfully!') { %>
+                                    <script>
+                                        createBalloons();
+                                    </script>
+                                <% } %>
+                        </div>                        
+                    </div>
+                    
+                </form>
+            
+            </div>
+
+            
+        </main>
+
+        <%- include('EJS/footer') %> <!-- Include footer.ejs -->
+    </body>
+    
+
+
+</html>

@@ -1,0 +1,137 @@
+[
+    {
+        "name": "Luna",
+        "age": "0-6 months",
+        "breed": "Maine Coon",
+        "getAlong": ["Other Dogs", "Small Children"],
+        "gender": "Female",
+        "type": "Cat",
+        "description": "Luna is a playful Maine Coon kitten who enjoys the company of other dogs and loves interacting with small children."
+    },
+    {
+        "name": "Rex",
+        "age": "3-5 years",
+        "breed": "Golden Retriever",
+        "getAlong": ["Other Dogs"],
+        "gender": "Male",
+        "type": "Dog",
+        "description": "Rex is a friendly Golden Retriever who gets along well with other dogs and loves outdoor adventures."
+    },
+    {
+        "name": "Sophie",
+        "age": "1-2 years",
+        "breed": "Siamese",
+        "getAlong": ["Other Cats", "Small Children"],
+        "gender": "Female",
+        "type": "Cat",
+        "description": "Sophie is a curious Siamese cat who is great with other cats and enjoys playing with small children."
+    },
+    {
+        "name": "Max",
+        "age": "7-12 months",
+        "breed": "Labrador Retriever",
+        "getAlong": ["Other Dogs", "Small Children"],
+        "gender": "Male",
+        "type": "Dog",
+        "description": "Max is a playful Labrador Retriever puppy who loves to play with other dogs and is gentle with small children."
+    },
+    {
+        "name": "Bella",
+        "age": "3-5 years",
+        "breed": "French Bulldog",
+        "getAlong": ["Other Cats", "Small Children"],
+        "gender": "Female",
+        "type": "Dog",
+        "description": "Bella is a charming French Bulldog who gets along well with both other cats and small children."
+    },
+    {
+        "name": "Oliver",
+        "age": "6-9 years",
+        "breed": "Persian",
+        "getAlong": ["Other Cats"],
+        "gender": "Male",
+        "type": "Cat",
+        "description": "Oliver is a calm Persian cat who enjoys the company of other cats and prefers a quiet environment."
+    },
+    {
+        "name": "Charlie",
+        "age": "1-2 years",
+        "breed": "Labrador Retriever",
+        "getAlong": ["Other Dogs", "Small Children"],
+        "gender": "Male",
+        "type": "Dog",
+        "description": "Charlie is an energetic Labrador Retriever who loves playing with other dogs and gets along well with small children."
+    },
+    {
+        "name": "Luna",
+        "age": "0-6 months",
+        "breed": "Ragdoll",
+        "getAlong": ["Other Cats"],
+        "gender": "Female",
+        "type": "Cat",
+        "description": "Luna is a playful Ragdoll kitten who enjoys snuggling with other cats and exploring her surroundings."
+    },
+    {
+        "name": "Max",
+        "age": "3-5 years",
+        "breed": "German Shepherd",
+        "getAlong": ["Other Dogs", "Small Children"],
+        "gender": "Male",
+        "type": "Dog",
+        "description": "Max is a loyal German Shepherd with a protective nature. He gets along with other dogs and is gentle with small children."
+    },
+    {
+        "name": "Whiskers",
+        "age": "7-12 months",
+        "breed": "Maine Coon",
+        "getAlong": ["Other Cats", "Small Children"],
+        "gender": "Female",
+        "type": "Cat",
+        "description": "Whiskers is a friendly Maine Coon kitten who enjoys the company of other cats and is patient with small children."
+    },
+    {
+        "name": "Bella",
+        "age": "3-5 years",
+        "breed": "French Bulldog",
+        "getAlong": ["Other Dogs"],
+        "gender": "Female",
+        "type": "Dog",
+        "description": "Bella is a charming French Bulldog who loves socializing with other dogs and is known for her playful antics."
+    },
+    {
+        "name": "Sophie",
+        "age": "6-9 years",
+        "breed": "Siamese",
+        "getAlong": ["Other Cats"],
+        "gender": "Female",
+        "type": "Cat",
+        "description": "Sophie is a sophisticated Siamese cat who enjoys the company of other cats and prefers a serene home environment."
+    },
+    {
+        "name": "Rocky",
+        "age": "4 years",
+        "breed": "Bulldog",
+        "getAlong": ["Other Dogs", "Small Children"],
+        "gender": "Male",
+        "type": "Dog",
+        "description": "Rocky is a robust Bulldog with a friendly disposition. He gets along well with other dogs and is gentle around small children."
+    },
+    {
+        "name": "Coco",
+        "age": "2 years",
+        "breed": "Golden Retriever",
+        "getAlong": ["Other Dogs", "Other Cats"],
+        "gender": "Female",
+        "type": "Dog",
+        "description": "Coco is a lovable Golden Retriever who enjoys playing with other dogs and cats. She's friendly and sociable."
+    },
+    {
+        "name": "Misty",
+        "age": "5 years",
+        "breed": "Persian",
+        "getAlong": ["Other Cats"],
+        "gender": "Female",
+        "type": "Cat",
+        "description": "Misty is a calm Persian cat who enjoys the company of other cats and prefers a quiet, cozy home."
+    }
+]

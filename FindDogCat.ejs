@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html lang="EN">
+    <head>
+        <title> Find Dog/Cat</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="You can adopt pets (cats and dogs) on our website">
+        <link rel="icon" href="images/petImg.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./Css/main.css">
+        
+    </head>
+    <body>
+
+        <%- include('EJS/header') %> <!-- Include header.ejs -->
+
+        <script src="/JS/date.js"></script>
+        <script src="/JS/main.js"></script>
+        <script src="/JS/close.js"></script>
+
+
+        <% if (loggedIn) { %>
+            <div class="logout-container">
+                <p>Welcome, <%= username %>!</p>
+                <form action="/logout" method="POST">
+                    <button type="submit" class="logout-button">Logout</button>
+                </form>
+            </div>
+        <% } %>
+
+        <main>
+
+            <div>
+
+                <div>
+                    <ul class="nav2 navigation">
+                        <a href="/" class="home-page-animation">
+                            <li>Home Page</li>
+                            <img width="200px" class="home-page-animation-hover" src="./images/DogSniffing_Transparent.gif">
+                        </a>
+                        <% if (!loggedIn) { %>
+                            <a href="/CreateAccount" class="browse">
+                                <li>Create an Account</li>
+                                <img class="browse-gif" src="https://media.tenor.com/JL0YrycH2gkAAAAj/peach-goma-crate-orange.gif" alt="Browse GIF">
+                            </a>
+                            <% } %>
+                        <a href="/FindDogCat" class="browse">
+                            <li>Find a dog/cat</li>
+                            <img class="browse-gif" src="https://media.tenor.com/JL0YrycH2gkAAAAj/peach-goma-crate-orange.gif" alt="Browse GIF">
+                        </a>
+                        <a href="/DogCare" class="cat-care-animation">
+                            <li>Dog Care</li>
+                            <img class="cat-care-animation-hover" src="https://cdn.pixabay.com/animation/2023/01/19/08/26/08-26-01-694_512.gif">    
+                        </a>
+                        
+                        <a href="/CatCare" class="cat-care-animation">
+                            
+                            <li>Cat Care</li>
+                            <img class="cat-care-animation-hover" src="https://64.media.tumblr.com/e642b66f8548fa1485621bd82d3eacc9/df8c8427627025f7-72/s640x960/af7dc108c6fd722e684f767aa7ad6b9f72f9d9c9.gifv">
+                        </a>
+                        
+                        <a href="/PetGiveAway" class="cat-care-animation">
+                            <div>
+                            <li>Have a pet to give away</li>
+                            <img class="cat-care-animation-hover" src="https://media.tenor.com/lCKwsD2OW1kAAAAi/happy-cat-happy-happy-cat.gif">
+                            </div>
+                            
+                        </a>
+                        
+                        <a href="/ContactUs"><li>Contact Us</li></a>
+                    </ul>
+                </div>
+
+
+              
+
+
+                
+                <div class="container-Style margin-style">
+                    <div class="content-container">
+                        <h2>Guidline on how to find the right pet for you</h2>
+                        <p>Choosing between a dog and a cat depends on your lifestyle and preferences. Dogs are typically more active and social, requiring regular exercise and interaction, making them great for people with more time and space. Cats, on the other hand, are more independent and adaptable to smaller living spaces, making them suitable for those with busier schedules. Consider your living situation, activity level, and the amount of time you can dedicate to a pet to find the perfect match for you. Both pets offer unique companionship and can bring immense joy to your life.</p>
+                    </div>
+                        <form id="petForm" action="/FindDogCat" method="POST">
+                                <fieldset class="form-container additional-style">
+                                    <legend class="Contact-And-Help additional-style">
+                                        <a href="/FindDogCat">Find a dog/cat</a>
+                                    </legend>
+                                    <label>Select the type of pet you want to find:</label>
+                                    <br><br>
+                                    <input type="radio" id="dog" name="petType" value="Dog"> <label for="dog">Dog</label>
+                                    <input type="radio" id="cat" name="petType" value="Cat"> <label for="cat">Cat</label>
+                                    <br><br>
+                                    <label>Type of breed:</label>
+                                    <select id="breedSelect" name="breedSelect">
+                                        <option value="Doesn't matter">Doesn't matter</option>
+                                    </select>
+                                    <br><br>
+                                    <label>Age Selection Range:</label>
+                                    <select id="ageRange" name="ageRange">
+                                        <option value="Any Age">Any Age</option>
+                                        <option value="0-6 months">0-6 months (Puppy/Kitten)</option>
+                                        <option value="7-12 months">7-12 months (Adolescent)</option>
+                                        <option value="1-2 years">1-2 years (Young Adult)</option>
+                                        <option value="3-5 years">3-5 years (Adult)</option>
+                                        <option value="6-9 years">6-9 years (Senior)</option>
+                                    </select>
+                                    <br><br>
+                                    <label>Preferred Gender:</label>
+                                    <input type="radio" id="male" name="gender" value="Male"> <label for="male">Male</label>
+                                    <input type="radio" id="female" name="gender" value="Female"> <label for="female">Female</label>
+                                    <input type="radio" id="anyGender" name="gender" value="Any Gender"> <label for="anyGender">Any Gender</label>
+                                    <br><br><br>
+                                    <label>Get Along with:</label>
+                                    <input type="checkbox" id="otherDogs" name="getAlong" value="Other Dogs"> <label for="otherDogs">Other Dogs</label>
+                                    <input type="checkbox" id="otherCats" name="getAlong" value="Other Cats"> <label for="otherCats">Other Cats</label>
+                                    <input type="checkbox" id="smallChildren" name="getAlong" value="Small Children"> <label for="smallChildren">Small Children</label>
+                                    <br><br><br>
+                                    <input class="social-media-icon" type="submit" value="Submit">
+                                    <input class="social-media-icon" type="reset" value="Reset">
+                                    <div id="error-message" style="color:red"></div>
+                                </fieldset>
+                                
+                            
+                        </form>
+                    
+                </div>
+                <div class="pet-container"> <!-- Pet section -->
+                    <div class="pet-box">
+                        <h3>Ginger</h3>
+                        <img src="https://ontariospca.ca/wp-content/uploads/2022/11/20220114_162647-scaled.jpg">
+                        <strong><p>Pet description</p></strong>
+                        <div class="description-container">
+                            <div class="mini-box"> <!--Pet description-->    
+                                <p><strong>Name:</strong> Ginger</p>
+                                <p><strong>Age:</strong> 8 Weeks</p>
+                                <p><strong>Breed:</strong>Domestic Short Hair</p>
+                            </div>
+                            <p><strong>Description:</strong>Ginger is an 8-week-old orange tabby kitten with striking blue eyes and a playful spirit. This curious little explorer loves pouncing around and snuggling up in cozy spots.</p>
+
+                        </div>
+                        <button>Interested</button>
+                    </div>
+
+                    <div class="pet-box">
+                        <h3>Max</h3>
+                        <img src="https://www.rover.com/blog/wp-content/uploads/2015/08/vet-golden-puppy.jpg">
+                        <strong><p>Pet description</p></strong>
+                        <div class="description-container">
+                            <div class="mini-box"> <!--Pet description-->    
+                                <p><strong>Name:</strong> Max</p>
+                                <p><strong>Age:</strong> 10 weeks</p>
+                                <p><strong>Breed:</strong>Golden Retriever</p>
+                            </div>
+                            <p><strong>Description:</strong>Max is an adorable 10-week-old Golden Retriever puppy with a friendly demeanor and a wagging tail. With his fluffy golden fur and bright eyes, Max loves meeting new people and enjoys playtime. His happy smile and playful nature make him a delightful companion.</p>
+                        </div>
+                        <button>Interested</button>
+                    </div>
+
+                    <div class="pet-box">
+                        <h3>Oliver</h3>
+                        <img src="https://i.pinimg.com/736x/d0/6e/51/d06e51d78ea72955085249dfefae46a7.jpg">
+                        <strong><p>Pet description</p></strong>
+                        <div class="description-container">
+                            <div class="mini-box"> <!--Pet description-->    
+                                <p><strong>Name:</strong> Oliver</p>
+                                <p><strong>Age:</strong> 3 years</p>
+                                <p><strong>Breed:</strong>Exotic Shorthair</p>
+                            </div>
+                            <p><strong>Description:</strong>Oliver is a distinguished 3-year-old Exotic Shorthair with a plush, ginger coat and a round, expressive face. His calm and composed demeanor makes him the perfect companion for a relaxed household. Oliver enjoys lounging in cozy spots and observing his surroundings with a wise and knowing gaze.</p>
+                        </div>
+                        <button>Interested</button>
+                    </div>
+
+                    <div class="pet-box">
+                        <h3>Bella</h3>
+                        <img src="https://assets.vogue.com/photos/5eb43f8e1548d3460499ec9b/master/pass/IMG_7801.JPG">
+                        <strong><p>Pet description</p></strong>
+                        <div class="description-container">
+                            <div class="mini-box"> <!--Pet description-->    
+                                <p><strong>Name:</strong> Bella</p>
+                                <p><strong>Age:</strong> 3 years old</p>
+                                <p><strong>Breed:</strong>Great Dane</p>
+                            </div>
+                            <p><strong>Description:</strong>Bella is a sweet and playful Labrador Retriever who loves playing with her favorite rope toy. She enjoys lounging indoors but is always ready for a game of fetch or a walk in the park. Bella's calm and friendly demeanor makes her a perfect companion for any family.</p>
+                        </div>
+                        <button>Interested</button>
+                    </div>
+
+                    <div class="pet-box">
+                        <h3>Max</h3>
+                        <img src="https://www.marthastewart.com/thmb/MabrpMF4SHRIFsrItIKJGRmKq_M=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/make-home-comfortable-old-dog-getty-0523-2848b15cab7141f3939084601d4e344d.jpg">
+                        <strong><p>Pet description</p></strong>
+                        <div class="description-container">
+                            <div class="mini-box"> <!--Pet description-->    
+                                <p><strong>Name:</strong> Max</p>
+                                <p><strong>Age:</strong> 4 years old</p>
+                                <p><strong>Breed:</strong>Golden Retriever</p>
+                            </div>
+                            <p><strong>Description:</strong>Max is a friendly and affectionate Golden Retriever with a vibrant personality. He loves playing fetch and is great with children. With his shiny golden coat and expressive eyes, he brings joy and warmth to everyone around him. Max enjoys long walks and has a calm demeanor at home, making him an excellent companion.</p>
+                        </div>
+                        <button>Interested</button>
+                    </div>
+                    <div class="pet-box">
+                        <h3>Oliver</h3>
+                        <img src="https://i.insider.com/5e541ff7fee23d3db71d7af4?width=1136&format=jpeg">
+                        <strong><p>Pet description</p></strong>
+                        <div class="description-container">
+                            <div class="mini-box"> <!--Pet description-->    
+                                <p><strong>Name:</strong> Oliver</p>
+                                <p><strong>Age:</strong> 4 years old</p>
+                                <p><strong>Breed:</strong>Maine Coon</p>
+                            </div>
+                            <p><strong>Description:</strong>Oliver is a gentle giant of a Maine Coon, known for his large size and tufted ears. With a thick, luxurious coat and a friendly disposition, he’s the perfect blend of beauty and warmth. Oliver is affectionate and enjoys curling up on laps or basking in sunny spots. He’s playful but also has a calm side, making him a wonderful companion for both lively and relaxed moments.</p>
+                        </div>
+                        <button>Interested</button>
+                    </div>
+
+
+
+                </div>
+                </div> 
+               
+
+
+
+        </main>
+        <%- include('EJS/footer') %> <!-- Include footer.ejs -->
+
+
+        <div id="result-overlay" <% if (showResults) { %> style="display: flex;" <% } else { %> style="display: none;" <% } %>>
+            <div class="result-modal">
+                <h2>Search Results</h2>
+                <% if (results.length === 0) { %>
+                    <p>No pets found.</p>
+                <% } else { %>
+                    <% results.forEach(pet => { %>
+                        <div class="pet-result">
+                            <h3><%= pet.name %></h3>
+                            <p>Type: <%= pet.type %></p>
+                            <p>Breed: <%= pet.breed %></p>
+                            <p>Age: <%= pet.age %></p>
+                            <p>Gender: <%= pet.gender %></p>
+                            <p>Get Along: <%= pet.getAlong %></p>
+                        </div>
+                    <% }) %>
+                <% } %>
+                <button id="close-result">Close</button>
+            </div>
+        </div>
+        
+
+    </body>
+
+
+
+</html>

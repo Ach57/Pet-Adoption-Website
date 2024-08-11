@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Terms of Use</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="You can adopt pets (cats and dogs) on our website">
+        <link rel="icon" href="/images/petImg.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/Css/main.css">
+        
+    </head>
+
+
+    <body>
+        <%- include('EJS/header') %> <!-- Include header.ejs -->
+    
+        <script src="/JS/date.js"></script>
+
+        <% if (loggedIn) { %>
+            <div class="logout-container">
+                <p>Welcome, <%= username %>!</p>
+                <form action="/logout" method="POST">
+                    <button type="submit" class="logout-button">Logout</button>
+                </form>
+            </div>
+        <% } %>
+
+        <main>
+
+            <h3> Comming soon . . . </h3>
+
+
+
+
+
+
+        </main>
+
+
+        <%- include('EJS/footer') %> <!-- Include footer.ejs -->
+
+
+
+
+
+
+    </body>
+
+
+
+
+
+
+
+</html>
